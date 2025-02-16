@@ -92,7 +92,8 @@ const ChatbotComponent = ({ onSubmit }) => {
   return (
     <div className="chat-container">
       <div className="chat-history">
-        <p>Welcome User. Let's start.</p>
+        <div className="chat-welcome">👋 Welcome User!</div>
+        <div className="chat-welcome">We will begin with some basic info about you. Let's start.</div>
         {chatHistory.map((entry, index) => (
           <div key={index} className={`chat-message ${entry.type}`}>
             {entry.text}
