@@ -1,42 +1,68 @@
 .chat-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 600px;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 600px;
+  width: 100%;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-history {
+  width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-welcome {
+  text-align: center;
+  font-weight: bold;
+  color: #007bff;
+  padding: 10px;
+}
+
+.chat-message {
+  max-width: 60%; /* Now messages are confined to content width */
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin: 5px 0;
+  word-wrap: break-word;
+  transition: all 0.3s ease-in-out;
+  display: inline-block; /* Prevents stretching */
+}
+
+/* Bot message styling */
+.chat-message.bot {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-start;
+  text-align: left;
+  border-radius: 15px 15px 15px 5px;
+}
+
+/* User message styling */
+.chat-message.user {
+  background-color: #34c759;
+  color: white;
+  align-self: flex-end;
+  text-align: right;
+  border-radius: 15px 15px 5px 15px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .chat-container {
+    height: auto;
   }
-  
-  .chat-history {
-    width: 100%;
-    
-    max-height: 84%; /* Adjust the height as needed */
-    overflow-y: auto;
-    padding-bottom: 20px;
+  .chat-message {
+    max-width: 80%; /* Adjusted for smaller screens */
   }
-  
-  .chat-entry {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 10px;
-  }
-  
-  .chat-question {
-    grid-row: 1;
-    grid-column: 1;
-    text-align: left;
-    background-color: darkgrey;
-    border-radius: 6px;
-    padding: 6px;
-    font-size: large;
-  }
-  
-  .chat-answer {
-    grid-column: 2;
-    grid-row: 2;
-    text-align: right;
-    background-color: darkgrey;
-    border-radius: 6px;
-    padding: 6px;
-    font-size: large;
-  }
-  
+}
+

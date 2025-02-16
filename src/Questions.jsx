@@ -1,24 +1,31 @@
 import React, { useState } from 'react';
-import './Questions.css'; // New CSS import
+import './Questions.css';
 
 const QuestionComponent = ({ question, fieldName, onAnswer }) => {
   const [value, setValue] = useState('');
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleAnswer();
-    }
+    if (e.key === 'Enter') handleAnswer();
   };
 
   const handleAnswer = () => {
-    onAnswer(value, fieldName);
+    if (value.trim() !== '') {
+      onAnswer(value, fieldName);
+      setValue(''); // Clear input after sending
+    }
   };
 
   return (
     <div className="question-container">
       <p>{question}</p>
       <div className="input-container">
-        <input type="text" onKeyDown={handleKeyPress} value={value} onChange={(e) => setValue(e.target.value)} />
+        <input
+          type="text"
+          placeholder="Type your answer..."
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={handleKeyPress}
+        />
         <button onClick={handleAnswer}>Send</button>
       </div>
     </div>
