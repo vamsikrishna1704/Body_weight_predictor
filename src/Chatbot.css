@@ -17,8 +17,6 @@
   padding: 10px;
   border-radius: 8px;
   background-color: white;
-  display: flex;
-  flex-direction: column;
 }
 
 .chat-welcome {
@@ -29,39 +27,41 @@
 }
 
 .chat-message {
-  max-width: 60%; /* Now messages are confined to content width */
-  padding: 10px 15px;
+  max-width: 80%;
+  padding: 10px;
   border-radius: 15px;
-  margin: 5px 0;
+  margin: 5px;
   word-wrap: break-word;
   transition: all 0.3s ease-in-out;
-  display: inline-block; /* Prevents stretching */
 }
 
-/* Bot message styling */
-.chat-message.bot {
+.bot {
   background-color: #007bff;
   color: white;
   align-self: flex-start;
-  text-align: left;
-  border-radius: 15px 15px 15px 5px;
 }
 
-/* User message styling */
-.chat-message.user {
+.user {
   background-color: #34c759;
   color: white;
   align-self: flex-end;
-  text-align: right;
-  border-radius: 15px 15px 5px 15px;
 }
 
-/* Responsive Design */
+.chat-message.bot {
+  align-self: flex-start;
+  text-align: left;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  text-align: right;
+}
+
 @media screen and (max-width: 768px) {
   .chat-container {
     height: auto;
   }
   .chat-message {
-    max-width: 80%; /* Adjusted for smaller screens */
+    max-width: 100%;
   }
 }
